@@ -1,0 +1,2 @@
+export const CHANGE_RANGE = 'CHANGE_RANGE'
+export const FETCH_ARTICLE = 'FETCH_ARTICLE'
