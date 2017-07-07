@@ -6,6 +6,7 @@ import { isProd } from './src/shared/util'
 
 export default {
 	entry: [
+		'whatwg-fetch',
 		'react-hot-loader/patch',
 		'./src/client',
 	],

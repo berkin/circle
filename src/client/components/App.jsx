@@ -1,20 +1,24 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { changeRange, fetchArticle } from '../actions/'
 
-let App = ({ value, dispatch }) => (
+const App = ({ value, dispatch }) => (
 	<div>
 		<input
 			type="number"
-			onChange={(e) => {
-				dispatch(changeRange(e.target.value))
-			}
+			onChange={
+				(e) => {
+					dispatch(changeRange(e.target.value))
+				}
 			}
 		/>
 		<button
-			onClick={() => {
-				dispatch(fetchArticle(value))
-			}}
+			onClick={
+				() => {
+					dispatch(fetchArticle(value))
+				}
+			}
 			style={{
 				width: `${value}px`,
 				height: `${value}px`,
@@ -25,12 +29,14 @@ let App = ({ value, dispatch }) => (
 	</div>
 )
 
-const mapStateToProps = (state) => {
-	return {
-		value: state
-	}
+const mapStateToProps = state => ({
+	value: parseInt(state.value, 10),
+})
+
+const AppComponent = connect(mapStateToProps)(App)
+
+App.propTypes = {
+	value: PropTypes.number.isRequired,
+	dispatch: PropTypes.func.isRequired,
 }
-
-App = connect(mapStateToProps)(App)
-
-export default App
+export default AppComponent

@@ -1,6 +1,7 @@
-import { CHANGE_RANGE, FETCH_ARTICLE } from '../constants/'
+import { combineReducers } from 'redux'
+import { CHANGE_RANGE, FETCH_ARTICLE_SUCCESS } from '../constants/'
 
-const changeRange = (state = 0, action) => {
+const value = (state = 0, action) => {
 	switch (action.type) {
 	case CHANGE_RANGE:
 		return action.value
@@ -9,18 +10,16 @@ const changeRange = (state = 0, action) => {
 	}
 }
 
-export default changeRange
-
 const article = (state = {}, action) => {
 	switch (action.type) {
-		case FETCH_ARTICLE_SUCCESS:
-			return {
-				...state,
-				action.article
-			}
-		default:
-			return state
+	case FETCH_ARTICLE_SUCCESS:
+		return action.article
+	default:
+		return state
 	}
 }
 
-export default article
+export default combineReducers({
+	value,
+	article,
+})
