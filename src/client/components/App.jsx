@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Article from './Article'
+import Post from './Post'
 import { connect } from 'react-redux'
 import { changeRange, fetchArticle } from '../actions/'
 
-const App = ({ value, article, dispatch }) => (
+const App = ({ value, post, dispatch }) => (
 	<div>
 		<input
 			type="number"
@@ -27,13 +27,13 @@ const App = ({ value, article, dispatch }) => (
 			}}
 			className="circle"
 		/>
-		<Article content={article} />
+		<Post content={post} />
 	</div>
 )
 
 const mapStateToProps = state => ({
 	value: parseInt(state.value, 10),
-	article: state.article,
+	post: state.post,
 })
 
 const AppComponent = connect(mapStateToProps)(App)

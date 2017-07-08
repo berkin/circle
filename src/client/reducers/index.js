@@ -10,10 +10,10 @@ const value = (state = 0, action) => {
 	}
 }
 
-const article = (state = {}, action) => {
+const post = (state = {}, action) => {
 	switch (action.type) {
 	case FETCH_ARTICLE_SUCCESS:
-		return action.article
+		return action.post
 	default:
 		return state
 	}
@@ -21,5 +21,5 @@ const article = (state = {}, action) => {
 
 export default combineReducers({
 	value,
-	article,
+	post,
 })

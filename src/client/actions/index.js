@@ -21,10 +21,10 @@ export const fetchArticle = id => (dispatch) => {
 				return
 			}
 			response.json().then((data) => {
-				const [article = {}] = data.filter(item => id === item.id)
+				const [post = {}] = data.filter(item => id === item.id)
 				dispatch({
 					type: FETCH_ARTICLE_SUCCESS,
-					article,
+					post,
 				})
 			})
 		})
