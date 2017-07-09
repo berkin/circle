@@ -30,6 +30,9 @@ body {
 	outline: 0;
 	text-align: center;
 	width: 100%;
+	&.error {
+		border-color: #cb356b;
+	}
 }
 
 .circle-container {
@@ -38,6 +41,8 @@ body {
 }
 
 .circle {
+	border-radius: 100%;
+
 	position: absolute;
 	top: 0;
 	left: 0;
