@@ -1,33 +1,40 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import '../styles/App.scss'
 import Post from './Post'
-import { connect } from 'react-redux'
 import { changeRange, fetchArticle } from '../actions/'
 
 const App = ({ value, post, dispatch }) => (
-	<div>
-		<input
-			type="number"
-			onChange={
-				(e) => {
-					dispatch(changeRange(e.target.value))
+	<div className="container">
+		<div className="form-input">
+			<label htmlFor="selector" className="form-input__label">Enter post id:</label>
+			<input
+				id="selector"
+				className="selector"
+				type="number"
+				onChange={
+					(e) => {
+						dispatch(changeRange(e.target.value))
+					}
 				}
-			}
-		/>
-		<button
-			onClick={
-				() => {
-					dispatch(fetchArticle(value))
+			/>
+		</div>
+		<div className="circle-container">
+			<button
+				onClick={
+					() => {
+						dispatch(fetchArticle(value))
+					}
 				}
-			}
-			style={{
-				width: `${value}px`,
-				height: `${value}px`,
-				borderRadius: '100%'
-			}}
-			className="circle"
-		/>
+				style={{
+					width: `${value}px`,
+					height: `${value}px`,
+					borderRadius: '100%'
+				}}
+				className="circle"
+			/>
+		</div>
 		<Post content={post} />
 	</div>
 )
