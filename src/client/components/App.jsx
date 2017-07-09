@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import '../styles/App.scss'
 import Post from './Post'
 import { connect } from 'react-redux'
 import { changeRange, fetchArticle } from '../actions/'

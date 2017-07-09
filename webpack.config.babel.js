@@ -19,6 +19,11 @@ export default {
 	module: {
 		rules: [
 			{
+				test: /\.(js|jsx)$/,
+				use: 'babel-loader',
+				exclude: /node_modules/,
+			},
+			{
 				test: /\.scss$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
@@ -42,7 +47,6 @@ export default {
 					]
 				})
 			},
-		{ test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
 		],
 	},
 	devtool: isProd ? false : 'source-map',
@@ -56,11 +60,11 @@ export default {
 		new webpack.NamedModulesPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
 		new ExtractTextPlugin({
-			filename: 'styles.css',
+			filename: 'css/style.css',
 			allChunks: true
 		})
 	],
 	resolve: {
-		extensions: ['.js', '.jsx', 'scss', 'css'],
+		extensions: ['.js', '.jsx', '.scss', '.css'],
 	},
 }

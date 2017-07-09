@@ -8,7 +8,7 @@ const renderApp = title =>
 		<meta charset="UTF-8">
 		<title>${title}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="//localhost:${WDS_PORT}/${STATIC_PATH}/css/style.css">
+		<link rel="stylesheet" href="//localhost:${WDS_PORT}/dist/css/style.css">
 	</head>
 	<body>
 		<div class="${APP_CONTAINER_CLASS}"></div>
