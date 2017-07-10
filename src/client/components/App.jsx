@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import '../styles/App.scss'
 import Post from './Post'
 import { changeRange, fetchArticle } from '../actions/'
+import { getIsFetching } from '../reducers'
 
 const App = ({ value, post, isFetching, dispatch }) => {
 	const isValid = value >= 0 && value < 100
@@ -47,7 +48,7 @@ const App = ({ value, post, isFetching, dispatch }) => {
 const mapStateToProps = state => ({
 	value: parseInt(state.value, 10),
 	post: state.post,
-	isFetching: state.isFetching
+	isFetching: getIsFetching(state)
 })
 
 const AppComponent = connect(mapStateToProps)(App)
