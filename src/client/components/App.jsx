@@ -42,8 +42,8 @@ const App = ({ value, post, dispatch }) => {
 			<Post content={post} />
 		</div>
 	)
-
 }
+
 const mapStateToProps = state => ({
 	value: parseInt(state.value, 10),
 	post: state.post,
@@ -54,6 +54,10 @@ const AppComponent = connect(mapStateToProps)(App)
 App.propTypes = {
 	value: PropTypes.number.isRequired,
 	dispatch: PropTypes.func.isRequired,
+	post: PropTypes.shape({
+		title: PropTypes.string,
+		body: PropTypes.string,
+	}).isRequired
 }
 
 export default AppComponent

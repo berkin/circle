@@ -24,5 +24,7 @@ module.exports = {
 		],
 	},
 	plugins: ['compat', 'react'],
+	settings: {
+		polyfills: ['fetch'],
+	}
 }
-

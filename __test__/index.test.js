@@ -1,5 +1,5 @@
 import * as types from '../src/client/constants/'
-import { changeRange } from '../src/client/reducers/'
+import { value } from '../src/client/reducers/'
 
 test('change range', () => {
 	const stateBefore = undefined
@@ -10,5 +10,5 @@ test('change range', () => {
 
 	const stateAfter = 5
 
-	expect(changeRange(stateBefore, action)).toEqual(stateAfter)
+	expect(value(stateBefore, action)).toEqual(stateAfter)
 })
