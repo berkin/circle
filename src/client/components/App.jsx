@@ -5,7 +5,7 @@ import '../styles/App.scss'
 import Post from './Post'
 import { changeRange, fetchArticle } from '../actions/'
 
-const App = ({ value, post, dispatch }) => {
+const App = ({ value, post, isFetching, dispatch }) => {
 	const isValid = value >= 0 && value < 100
 
 	return (
@@ -39,7 +39,7 @@ const App = ({ value, post, dispatch }) => {
 					/>
 				}
 			</div>
-			<Post content={post} />
+			<Post content={post} isFetching={isFetching} />
 		</div>
 	)
 }
@@ -47,6 +47,7 @@ const App = ({ value, post, dispatch }) => {
 const mapStateToProps = state => ({
 	value: parseInt(state.value, 10),
 	post: state.post,
+	isFetching: state.isFetching
 })
 
 const AppComponent = connect(mapStateToProps)(App)
@@ -54,6 +55,7 @@ const AppComponent = connect(mapStateToProps)(App)
 App.propTypes = {
 	value: PropTypes.number.isRequired,
 	dispatch: PropTypes.func.isRequired,
+	isFetching: PropTypes.bool.isRequired,
 	post: PropTypes.shape({
 		title: PropTypes.string,
 		body: PropTypes.string,
